@@ -1,10 +1,7 @@
 from datetime import datetime
-from math import fabs
-from sqlite3 import Timestamp
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import  HttpResponseRedirect
 from django.shortcuts import render
 from . import models
-
 
 
 def index(request):
@@ -24,7 +21,6 @@ def index(request):
         message.save()
         return HttpResponseRedirect('/')
     
-
     message_log = models.Message.objects.all()[:4:-1]
 
     return render(request, 'index.html', context={'message_log': message_log})
